@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Almost Club</title>
+  <meta name="description" content="For Things That Almost Happened. Website 99.99% complete. The remaining 0.01% requires a Claude token.">
+  
+  <!-- Favicon Meta Tags -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#09090B] text-white font-sans antialiased selection:bg-purple-500/30 selection:text-purple-200 overflow-x-hidden min-h-screen flex flex-col opacity-0 transition-opacity duration-700 ease-out" id="page-body">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-[9999] w-full border-b border-white/5 bg-[#09090B]/80 backdrop-blur-md transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
+      <!-- Left: Navigation (Desktop only) -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400 w-1/3 justify-start">
+        <a href="#about" class="hover:text-white transition-colors duration-200" id="nav-about-btn">About</a>
+        <a href="#products" class="hover:text-white transition-colors duration-200" id="nav-products-btn">Products</a>
+      </nav>
+
+      <!-- Center: Only the circular Almost logo (Symmetric on Desktop & Mobile) -->
+      <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+        <a href="/" class="flex items-center justify-center select-none" aria-label="Home">
+          <img src="assets/logo-almost-club.png" alt="Almost Logo" class="w-[52px] h-[52px] object-cover rounded-full border border-white/10 shadow-[0_0_15px_rgba(124,58,237,0.1)]">
+        </a>
+      </div>
+
+      <!-- Right: Navigation / Hamburger -->
+      <div class="flex items-center gap-6 w-1/3 justify-end ml-auto z-10">
+        <!-- Desktop Right links -->
+        <a href="#contact" class="hidden md:inline-block text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200" id="nav-contact-btn">Contact</a>
+        <a id="nav-join-btn" href="https://chat.whatsapp.com/J6BvMgwmS2CGhd8hZ8JA0P" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center justify-center px-4 py-1.5 text-xs md:text-sm font-medium bg-white text-[#09090B] rounded-full hover:bg-zinc-200 transition-colors duration-200 cursor-pointer">
+          Join the Club
+        </a>
+        
+        <!-- Mobile Hamburger Button -->
+        <button id="mobile-menu-btn" class="flex md:hidden flex-col justify-center items-center gap-1.5 w-10 h-10 border border-white/10 rounded-full bg-[#0E0E11] hover:bg-zinc-900 transition-colors cursor-pointer" aria-label="Toggle mobile menu">
+          <span class="w-4 h-0.5 bg-white transition-transform duration-300" id="hamburger-line-1"></span>
+          <span class="w-4 h-0.5 bg-white transition-transform duration-300" id="hamburger-line-2"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu-overlay" class="fixed inset-x-0 top-20 bg-[#09090B] z-40 flex flex-col px-6 py-8 border-b border-white/5 opacity-0 pointer-events-none -translate-y-4 transition-all duration-300 ease-out md:hidden">
+    <nav class="flex flex-col gap-6 text-lg font-medium text-zinc-400 mb-8">
+      <a href="#about" class="hover:text-white transition-colors duration-200 mobile-nav-link" id="mobile-nav-about">About</a>
+      <a href="#products" class="hover:text-white transition-colors duration-200 mobile-nav-link" id="mobile-nav-products">Products</a>
+      <a href="#contact" class="hover:text-white transition-colors duration-200 mobile-nav-link" id="mobile-nav-contact">Contact</a>
+    </nav>
+    <a id="mobile-nav-join-btn" href="https://chat.whatsapp.com/J6BvMgwmS2CGhd8hZ8JA0P" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center py-3 bg-white text-[#09090B] rounded-full hover:bg-zinc-200 transition-all font-medium text-sm">
+      Join the Club
+    </a>
+  </div>
+
+  <!-- MAIN CONTENT CONTAINER (2 Snap Sections) -->
+  <main class="flex-grow z-10 relative flex flex-col">
+
+    <!-- HERO SECTION -->
+    <section id="hero-section" class="snap-section relative w-full h-[100dvh] flex flex-col justify-center items-center text-center px-6">
+      
+      <!-- Outlined Sad Face Icon -->
+      <div class="relative flex items-center justify-center mb-6 hero-glow-container select-none">
+        <!-- Subtle purple glow behind the icon -->
+        <div class="absolute w-24 h-24 bg-[#7C3AED]/10 blur-2xl rounded-full pointer-events-none"></div>
+        <i data-lucide="frown" class="w-16 h-16 text-zinc-400 stroke-[1.2] relative z-10 filter drop-shadow-[0_0_8px_rgba(124,58,237,0.15)]"></i>
+      </div>
+
+      <!-- Heading -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-white leading-tight mb-6 px-4">
+        We're <span class="text-[#7C3AED] font-normal">almost</span> there.
+      </h1>
+
+      <!-- Body Copy -->
+      <p class="text-zinc-400 text-sm md:text-base font-light tracking-wide max-w-md mx-auto leading-relaxed mb-8 px-4">
+        We were building this website with Claude.<br>
+        Then our tokens expired.<br>
+        <a href="https://chat.whatsapp.com/J6BvMgwmS2CGhd8hZ8JA0P" target="_blank" rel="noopener noreferrer" class="underline decoration-purple-500/40 hover:decoration-purple-500 text-white/90 hover:text-white transition-all duration-200">Click to check next Monday.</a>
+      </p>
+
+      <!-- or -->
+      <span class="block text-zinc-500 font-mono text-xs uppercase tracking-widest mb-6 select-none">or</span>
+
+      <!-- CTA Button -->
+      <div class="w-full max-w-xs sm:max-w-none px-6 sm:px-0">
+        <a id="hero-join-btn" href="https://chat.whatsapp.com/J6BvMgwmS2CGhd8hZ8JA0P" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-medium text-sm rounded-full transition-all duration-300 hover:shadow-[0_0_20px_rgba(124,58,237,0.3)]">
+          Join the Club
+        </a>
+      </div>
+
+      <!-- Bottom of Hero: Scroll Trigger (Positioned relative to button) -->
+      <div class="mt-20 md:mt-24 flex flex-col items-center gap-3 cursor-pointer group z-20" id="hero-scroll-trigger">
+        <span class="text-xs font-mono text-zinc-400 group-hover:text-white transition-colors duration-300 tracking-wider">Got an idea?</span>
+        <div class="w-5 h-9 border border-white/20 group-hover:border-[#7C3AED]/50 rounded-full flex justify-center p-1.5 transition-colors duration-300">
+          <div class="w-1 h-1.5 bg-zinc-400 group-hover:bg-[#7C3AED] rounded-full animate-scroll-dot"></div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SECOND SECTION + FOOTER -->
+    <section id="second-section" class="snap-section relative w-full h-[100dvh] flex flex-col justify-between items-center text-center px-6 pt-24">
+      
+      <!-- Top Spacer to help center the main block -->
+      <div class="h-10"></div>
+
+      <!-- Content -->
+      <div class="max-w-md mx-auto flex-grow flex flex-col justify-center">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-white mb-6">
+          Got an <span class="text-[#7C3AED] font-normal">almost</span>?
+        </h2>
+        
+        <p class="text-zinc-400 text-sm md:text-base font-light leading-relaxed max-w-sm mx-auto mb-8 px-4">
+          Our website can wait.<br>
+          Your idea doesn't have to.
+        </p>
+
+        <div class="w-full max-w-xs sm:max-w-none px-6 sm:px-0">
+          <button id="open-modal-btn" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 border border-white/10 bg-[#0E0E11] text-white hover:bg-zinc-900 rounded-full hover:border-[#7C3AED]/30 transition-all duration-300 text-sm font-medium cursor-pointer">
+            Contact Us
+          </button>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <footer class="w-full border-t border-white/5 py-12 mt-auto bg-[#09090B] z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center md:items-start gap-8 text-center md:text-left">
+          <!-- Left Column -->
+          <div class="flex flex-col gap-3 items-center md:items-start">
+            <div class="font-medium text-2xl md:text-3xl tracking-tight text-white/95 flex items-center gap-5">
+              <span>The</span>
+              <span class="inline-flex items-center justify-center w-[52px] h-[52px] rounded-full overflow-hidden border border-white/10 bg-zinc-900 flex-shrink-0 shadow-[0_0_15px_rgba(124,58,237,0.1)]">
+                <img src="assets/logo-almost-club.png" alt="Almost" class="w-full h-full object-cover">
+              </span>
+              <span>Club</span>
+            </div>
+            <p class="text-zinc-500 text-xs md:text-sm font-light mt-1">
+              Built for people who almost started.
+            </p>
+          </div>
+
+          <!-- Center Column (Social Links - Inline SVG Lucide Icons) -->
+          <div class="flex items-center justify-center gap-6 py-2 md:py-0">
+            <a href="https://www.linkedin.com/company/the-almost-club/" target="_blank" rel="noopener noreferrer" aria-label="The Almost Club LinkedIn Profile" class="footer-social-link text-white/70 hover:text-[#7C3AED] transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/thealmost_club" target="_blank" rel="noopener noreferrer" aria-label="The Almost Club Instagram Profile" class="footer-social-link text-white/70 hover:text-[#7C3AED] transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="https://chat.whatsapp.com/J6BvMgwmS2CGhd8hZ8JA0P" target="_blank" rel="noopener noreferrer" aria-label="The Almost Club WhatsApp Community" class="footer-social-link text-white/70 hover:text-[#7C3AED] transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+                <path d="M8 12h.01"/>
+                <path d="M12 12h.01"/>
+                <path d="M16 12h.01"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Right Column (Copyright) -->
+          <div class="text-zinc-600 text-xs md:text-sm flex items-center justify-center md:justify-end gap-5">
+            <span>&copy; 2026 The</span>
+            <span class="inline-flex items-center justify-center w-[52px] h-[52px] rounded-full overflow-hidden border border-white/10 bg-zinc-900 flex-shrink-0 shadow-[0_0_15px_rgba(124,58,237,0.1)]">
+              <img src="assets/logo-almost-club.png" alt="Almost" class="w-full h-full object-cover">
+            </span>
+            <span>Club</span>
+          </div>
+        </div>
+      </footer>
+
+    </section>
+
+  </main>
+
+  <!-- CONTACT MODAL -->
+  <div id="contact-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300 ease-out" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    
+    <!-- Solid dark backdrop (no glassmorphism) -->
+    <div id="modal-backdrop" class="absolute inset-0 bg-[#09090B]/95 transition-opacity duration-300 ease-out opacity-0"></div>
+
+    <!-- Centered Card Container (solid surface with purple shadow glow) -->
+    <div id="modal-card" class="relative z-10 w-full max-w-md bg-[#0E0E11] border border-white/10 rounded-xl p-6 md:p-8 transform scale-95 opacity-0 transition-all duration-300 ease-out">
+      
+      <!-- Close Button -->
+      <button id="close-modal-btn" class="absolute top-4 right-4 p-1.5 text-zinc-500 hover:text-white rounded-lg bg-[#09090B] hover:bg-zinc-900 border border-white/5 transition-colors duration-150 cursor-pointer" aria-label="Close modal">
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Modal Content Area -->
+      <div id="modal-content-wrapper">
+        
+        <!-- HEADER -->
+        <div class="mb-5 space-y-1">
+          <h3 id="modal-title" class="text-lg md:text-xl font-bold tracking-tight text-white">Let's talk about your project</h3>
+          <p class="text-zinc-500 text-xs">Tell us what you're working on, and let's make it happen.</p>
+        </div>
+
+        <!-- FORM (Web3Forms Integrated) -->
+        <form id="contact-form" class="space-y-4">
+          <!-- Web3Forms Access Key -->
+          <input type="hidden" name="access_key" id="web3forms-access-key">
+          <!-- Honeypot for spam protection -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+          <!-- Optional Subject -->
+          <input type="hidden" name="subject" value="New Submission from The Almost Club">
+          
+          <!-- Name Field -->
+          <div class="space-y-1">
+            <label for="form-name" class="block text-[10px] font-semibold text-zinc-500 uppercase tracking-widest">Name</label>
+            <input type="text" id="form-name" name="name" required placeholder="John Doe" 
+              class="w-full px-3 py-2.5 bg-[#09090B] border border-white/10 rounded-lg text-white placeholder-zinc-700 focus:outline-none transition-colors text-sm">
+          </div>
+
+          <!-- Email Field -->
+          <div class="space-y-1">
+            <label for="form-email" class="block text-[10px] font-semibold text-zinc-500 uppercase tracking-widest">Email</label>
+            <input type="email" id="form-email" name="email" required placeholder="john@example.com" 
+              class="w-full px-3 py-2.5 bg-[#09090B] border border-white/10 rounded-lg text-white placeholder-zinc-700 focus:outline-none transition-colors text-sm">
+          </div>
+
+          <!-- Dropdown Field -->
+          <div class="space-y-1">
+            <label for="form-building" class="block text-[10px] font-semibold text-zinc-500 uppercase tracking-widest">What are you building?</label>
+            <div class="relative">
+              <select id="form-building" name="building_type" required 
+                class="w-full px-3 py-2.5 bg-[#09090B] border border-white/10 rounded-lg text-white placeholder-zinc-700 focus:outline-none transition-colors text-sm appearance-none cursor-pointer">
+                <option value="" disabled selected class="text-zinc-700 bg-[#0E0E11]">Select an option...</option>
+                <option value="Startup" class="bg-[#0E0E11] text-white">Startup</option>
+                <option value="Website" class="bg-[#0E0E11] text-white">Website</option>
+                <option value="Mobile App" class="bg-[#0E0E11] text-white">Mobile App</option>
+                <option value="AI Product" class="bg-[#0E0E11] text-white">AI Product</option>
+                <option value="Side Project" class="bg-[#0E0E11] text-white">Side Project</option>
+                <option value="Something Else" class="bg-[#0E0E11] text-white">Something Else</option>
+              </select>
+              <!-- Dropdown arrow -->
+              <div class="absolute inset-y-0 right-3.5 flex items-center pointer-events-none text-zinc-500">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Textarea Field -->
+          <div class="space-y-1">
+            <label for="form-about" class="block text-[10px] font-semibold text-zinc-500 uppercase tracking-widest">Tell us about it</label>
+            <textarea id="form-about" name="project_details" rows="3" required placeholder="Tell us what makes it unique..." 
+              class="w-full px-3 py-2.5 bg-[#09090B] border border-white/10 rounded-lg text-white placeholder-zinc-700 focus:outline-none transition-colors text-sm resize-none"></textarea>
+          </div>
+
+          <!-- Submit Button (Linear-like solid purple button) -->
+          <div class="pt-2">
+            <button type="submit" id="submit-btn" class="w-full inline-flex items-center justify-center px-4 py-2.5 text-sm font-semibold bg-[#7C3AED] hover:bg-[#6D28D9] text-white rounded-lg transition-colors duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+              <span id="submit-btn-text">Complete My Almost</span>
+              <svg id="submit-btn-spinner" class="hidden w-4 h-4 ml-2 animate-spin text-white" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            </button>
+          </div>
+          
+          <!-- Submit Error Message -->
+          <div id="form-error-display" class="hidden text-red-400 text-xs text-center font-medium transition-all duration-200"></div>
+
+        </form>
+
+      </div>
+      
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

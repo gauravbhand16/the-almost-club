@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Geist+Mono:wght@100..900&display=swap');
+
+/* ROOT VARIABLES */
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+  --bg-color: #09090B;
+  --surface-color: #0E0E11;
+  --accent-purple: #7C3AED;
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* BASE STYLING */
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* LOGO CONTAINER GLOW */
+.logo-container {
+  box-shadow: 0 0 40px rgba(124, 58, 237, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-container:hover {
+  border-color: rgba(124, 58, 237, 0.25);
+  box-shadow: 0 0 50px rgba(124, 58, 237, 0.1);
+}
+
+/* MODAL CONTAINER GLOW */
+#modal-card {
+  box-shadow: 0 0 50px rgba(124, 58, 237, 0.06);
+}
+
+/* INPUT FOCUS STATES (Linear-like solid style) */
+input:focus, select:focus, textarea:focus {
+  background-color: #0c0c0e !important;
+  border-color: rgba(124, 58, 237, 0.3) !important;
+  outline: none;
+}
+
+/* SCROLLBAR STYLE */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272A;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3F3F46;
+}
+
+/* MODAL ANIMATION HANDLERS */
+#contact-modal.modal-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#contact-modal.modal-active #modal-backdrop {
+  opacity: 1;
+}
+
+#contact-modal.modal-active #modal-card {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* SUCCESS ICON DRAWING ANIMATIONS */
+.success-icon-ring {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: draw-ring 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.success-icon-check {
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  animation: draw-check 0.5s 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes draw-ring {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes draw-check {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* PAGE LOAD FADE-IN */
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: page-fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* SNAP SECTION HEIGHTS */
+.snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  height: 100dvh;
+}
+
+/* MOUSE SCROLL DOT ANIMATION */
+@keyframes scroll-dot {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; transform: translateY(8px); }
+  100% { opacity: 0; transform: translateY(8px); }
+}
+
+.animate-scroll-dot {
+  animation: scroll-dot 1.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+/* SOCIAL LINK GLOW HOVER */
+.footer-social-link {
+  color: rgba(255, 255, 255, 0.75) !important;
+  transition: color 0.3s ease, filter 0.3s ease;
+}
+
+.footer-social-link svg {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.footer-social-link:hover {
+  color: #7C3AED !important;
+  filter: drop-shadow(0 0 8px rgba(124, 58, 237, 0.6));
+}
+
+/* MODAL BACKGROUND CORRECTION */
+#modal-backdrop {
+  background-color: rgba(9, 9, 11, 0.95);
+}
+
+/* STICKY NAV BACKGROUND TRANSITION ON SCROLL */
+header {
+  transition: background-color 0.3s ease, border-color 0.3s ease, padding 0.3s ease;
+}
+
+header.scrolled {
+  background-color: rgba(6, 6, 8, 0.96) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* MOBILE HAMBURGER BUTTON ROTATION */
+#mobile-menu-btn.active #hamburger-line-1 {
+  transform: translateY(3px) rotate(45deg);
+}
+
+#mobile-menu-btn.active #hamburger-line-2 {
+  transform: translateY(-3px) rotate(-45deg);
+}
+
+/* MOBILE MENU SLIDE-DOWN OVERLAY */
+#mobile-menu-overlay {
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+#mobile-menu-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  background-color: rgba(9, 9, 11, 0.98);
+}
+
+/* RESPONSIVE SCALE ADJUSTMENTS */
+@media (max-width: 480px) {
+  /* Support for small screens like 320px, 375px, 390px, 414px */
+  h1 {
+    font-size: 2.25rem !important; /* text-4xl */
+  }
+  h2 {
+    font-size: 1.875rem !important; /* text-3xl */
+  }
+  .max-w-md {
+    max-width: 100% !important;
+  }
+  section {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
