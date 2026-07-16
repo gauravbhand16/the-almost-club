@@ -153,8 +153,15 @@ input:focus, select:focus, textarea:focus {
 }
 
 .footer-social-link svg {
-  width: 24px !important;
-  height: 24px !important;
+  width: 22px !important;
+  height: 22px !important;
+}
+
+@media (min-width: 768px) {
+  .footer-social-link svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
 }
 
 .footer-social-link:hover {
