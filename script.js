@@ -11,7 +11,7 @@ const CONFIG = {
   whatsappUrl: "https://chat.whatsapp.com/J6BvMgwmS2CGhd8hZ8JA0P",
 
   // Replace with your Web3Forms Access Key
-  web3FormsKey: "YOUR_WEB3FORMS_ACCESS_KEY_HERE",
+  web3FormsKey: "07c88f99-6c53-4f81-9564-138d087d086d",,
 
   // Configurable Success Screen Typography
   successHeading: "Almost received.",
